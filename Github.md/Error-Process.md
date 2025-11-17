@@ -14,4 +14,6 @@ I was wrong
 
 Remembe the process
 
-Save-Add-Commi-Push
+Save-Add-Commit-Push
+
+Programmer often create the file name with this - in the middle to not encounter an error when commit the file that have 2 words
