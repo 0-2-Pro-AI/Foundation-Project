@@ -18,12 +18,13 @@ for i in range(len(food_list)):
 
     if status == "pendent":
         total_waitlist = total_waitlist + 1
+        print(f"Warn: The {food} are still not conclude")
 
     if price > max_price:
         max_price = price
 
 print("-----------------")
 print(".....Total revenue.....")
-print(total_revenue)
-print(total_waitlist)
-print(max_price)
+print("Final revenue: ", total_revenue)
+print("Total pending order: ", total_waitlist)
+print("The most expensive food: " , max_price)
