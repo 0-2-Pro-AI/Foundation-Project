@@ -45,9 +45,9 @@ def main():
             check_your_listing()
         elif choices == "3":
             print("Good bye!")
+            break
 
         else:
             print("Your choice is invalid! Please try again!")
 
 main()
-
