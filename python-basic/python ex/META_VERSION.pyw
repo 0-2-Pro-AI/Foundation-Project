@@ -1,7 +1,7 @@
 import tkinter as tk
 def middle_position(window, width, height):
     width_window= window.winfo_screenwidth()
-    height_window=window.winfo_screenwidth()
+    height_window=window.winfo_screenheight()
 
     x = int((width_window / 2) - (width / 2))
     y =int((height_window / 2) - (height / 2))
