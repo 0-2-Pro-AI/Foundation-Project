@@ -8,4 +8,4 @@ So this is created to make sure that i don´t lose my contribuitions
 
 I mean:
 
-NEVER GIVE 
+NEVER GIVE UP
