@@ -17,7 +17,8 @@ def order():
 
 def checking():
     print("---Your listings---" )
-    for i in range():
+    info = (food_list, address_list)
+    for i in range(info):
         print(f"ID{i+1} | Food: {food_list(i)} | At: {address_list(i)}")
 
 def main():
@@ -25,11 +26,11 @@ def main():
         MENU()
         choice = input("Choose (1/2/3): ")
 
-        if choice == 1:
+        if choice == "1":
             order()
-        elif choice == 2:
+        elif choice == "2":
             checking()
-        elif choice == 3:
+        elif choice == "3":
             break
 
 main()
