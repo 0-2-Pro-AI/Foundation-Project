@@ -1,28 +1,41 @@
 food_list = []
-address_list = []
+status_list = []
 
 def MENU():
-    print (" Welcome to SEND2YOU shop!")
+    print ("\n Welcome to SEND2YOU shop!")
     print("1. Making your new order ")
     print("2. Checking your listing")
     print("3. Exit")
 
 def order():
-    food = input ("Your choice: ")
-    address = input ("Delivery address: ")
-    print("It`s added!")
+    print("\n Making your new order.")
+    while True: 
+        food = input ("Your choice: ")
 
-    food_list.append(food)
-    address_list.append(address)
+        if len(food) > 0 : break
+        print("Error! Please try again!")
+
+    address = input ("Delivery address: ")
+    duration = input ("Delivery time: ")
+
+    info = f"{food}, From: SEND2U--->To:{address}[{duration}] "
+    food_list.append(info)
+    status_list.append("Pendent")
+    print(f"Your {food} is on the status `Pendent`.")
 
 def checking():
     print("---Your listings---" )
-    info = (food_list, address_list)
-    for i in range(info):
-        print(f"ID{i+1} | Food: {food_list(i)} | At: {address_list(i)}")
+
+    if len(food_list) == 0:
+        print("No oders found!")
+
+    else :
+        for i in range(food_list):
+            print(f"ID{i+1} | Food: {food_list(i)} | Status:{status_list(i)}")
 
 def main():
-    while True:
+    processing = True
+    while processing == True:
         MENU()
         choice = input("Choose (1/2/3): ")
 
@@ -31,6 +44,10 @@ def main():
         elif choice == "2":
             checking()
         elif choice == "3":
+            print("Good bye!")
             break
+
+        else:
+            print("Your choice is invalid!")
 
 main()
