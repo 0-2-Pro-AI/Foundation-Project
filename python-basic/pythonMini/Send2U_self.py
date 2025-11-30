@@ -46,13 +46,16 @@ def checking():
     else:
         for i, order in enumerate(orders,1):
             print(f"ID: {i} | Your order:{order['food']} | Price:{order['price']} | Status:{order['status']}")
+    
+        print("-"*30)
+        total = sum(order["price"] for order in orders)
+        print(f"TOTAL BILL: {total} euros")
 
 def main():
     processing = True
     while processing:
         MENU()
         choice = input("Choose (1/2/3): ")
-
         if choice == "1":
             order()
         elif choice == "2":
