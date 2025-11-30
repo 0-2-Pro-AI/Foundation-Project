@@ -17,7 +17,6 @@ def order():
 
     address = input ("Delivery address: ")
     duration = input ("Delivery time: ")
-
     info = f"{food}, From: SEND2U--->To:{address}[{duration}] "
     food_list.append(info)
     status_list.append("Pendent")
@@ -30,8 +29,8 @@ def checking():
         print("No oders found!")
 
     else :
-        for i in range(food_list):
-            print(f"ID{i+1} | Food: {food_list(i)} | Status:{status_list(i)}")
+        for i in range(len(food_list)):
+            print(f"ID{i+1} | Food: {food_list[i]} | Status:{status_list[i]}")
 
 def main():
     processing = True
