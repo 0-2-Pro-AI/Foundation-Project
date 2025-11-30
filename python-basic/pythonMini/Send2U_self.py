@@ -7,7 +7,10 @@ MENU_items = {
 }
 
 def MENU():
-    print ("\n Welcome to SEND2YOU shop!")
+    print()
+    print("="*30)
+    print ("---Welcome to SEND2YOU shop!---")
+    print("="*30)
     print("1. Making your new order ")
     print("2. Checking your listing")
     print("3. Exit")
