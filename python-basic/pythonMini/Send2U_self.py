@@ -1,5 +1,10 @@
-food_list = []
-status_list = []
+orders = ()
+MENU_items = {
+    "pizza": 3,
+    "kebab": 4,
+    "kfc": 5,
+    "ham": 2
+}
 
 def MENU():
     print ("\n Welcome to SEND2YOU shop!")
@@ -8,29 +13,35 @@ def MENU():
     print("3. Exit")
 
 def order():
-    print("\n Making your new order.")
-    while True: 
-        food = input ("Your choice: ")
+    while True:
+        print("\n---MAKING YOUR NEW ORDER--- ")
+        food_name = input("Your order: ").lower
+        if food_name in MENU_items():
+            print(f"Success! Your {food_name} is {MENU_items[food_name]} euros")
+            break
+        else:
+            print("We don`t have this option!")
 
-        if len(food) > 0 : break
-        print("Error! Please try again!")
+        address = input("Delivery address: ")
+        duration = input("Delivery time: ")
 
-    address = input ("Delivery address: ")
-    duration = input ("Delivery time: ")
-    info = f"{food}, From: SEND2U--->To:{address}[{duration}] "
-    food_list.append(info)
-    status_list.append("Pendent")
-    print(f"Your {food} is on the status `Pendent`.")
+    single_order = {
+        "food": food_name,
+        "price": MENU_items[food_name],
+        "address": address,
+        "duration": duration,
+        "status": "Pendent"
+    }
+    orders.append(single_order)
 
 def checking():
     print("---Your listings---" )
 
-    if len(food_list) == 0:
-        print("No oders found!")
-
-    else :
-        for i in range(len(food_list)):
-            print(f"ID{i+1} | Food: {food_list[i]} | Status:{status_list[i]}")
+    if not orders:
+        print("No order found")
+    else:
+        for i, order in enumerate(orders,1):
+            print(f"ID: {i} | Your order:{order["food"]} | Price:{order["price"]} | Status:{order["Pendent"]}")
 
 def main():
     processing = True
