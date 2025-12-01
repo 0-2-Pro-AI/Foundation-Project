@@ -60,21 +60,36 @@ def delete():
     checking()
     while True:
         try:
-            index = input("Enter ID to cancel(or '0' to back): ")
+            index = input("Enter ID to cancel(ex: 1,3) or '0' to back: ")
             if index == "0":
                 print("--> Back to menu.")
                 break
 
-            index = index - 1
-            if 0 <= index < len(orders):
-                item = orders.pop(index)
-                print(f"Your {item['food']} have been cancelled.")
-                break
-            else:
-                print("Your ID doesn't exit.")
+            id_str_list = index.split(",")
+            valid_indexes = []
+
+            for s in id_str_list:
+                if s.strip():
+                    idx = int(s.strip()) - 1
+                    if 0 <= idx <len(orders):
+                        valid_indexes.append(idx)
+
+            if not valid_indexes:
+                print("No valid IDs found! Please check your list again.")
+                continue
+           
+            valid_indexes.sort(reverse=True)
+
+            print(f"--> Deleting {len(valid_indexes)} item(s)...")
+            for idx in valid_indexes:
+                removed_item = orders.pop(idx)
+                print(f" Deleted: {removed_item['food']}")
+
+            print("--> Done.")
 
         except ValueError:
-            print("Error! Please enter a number!")
+            print("Error! Please enter numbers separated by comma (1,2).")
+    
          
 
 def main():
