@@ -27,7 +27,7 @@ def order():
             print(f"Success! Your {food_name} is {price} euros")
             break
         else:
-            print("We don`t have this option!Please try: ", list(MENU_items.keys()))
+            print("We don`t have this option! Please try: ", list(MENU_items.keys()))
 
     address = input("Delivery address: ")
     duration = input("Delivery time: ")
@@ -58,17 +58,23 @@ def checking():
 def delete():
     print("\n ---CANCEL ORDERS---")
     checking()
-    try:
-        index = int(input("Enter the ID you want to cancel: "))
-        index = index - 1
-        if 0 <= index < len(orders):
-            item = orders.pop(index)
-            print(f"Your {item['food']} have been cancelled.")
-        else:
-            print("Your ID doesn't exit.")
+    while True:
+        try:
+            index = input("Enter ID to cancel(or '0' to back): ")
+            if index == "0":
+                print("--> Back to menu.")
+                break
 
-    except ValueError:
-        print("Error! Please enter a number!")
+            index = index - 1
+            if 0 <= index < len(orders):
+                item = orders.pop(index)
+                print(f"Your {item['food']} have been cancelled.")
+                break
+            else:
+                print("Your ID doesn't exit.")
+
+        except ValueError:
+            print("Error! Please enter a number!")
          
 
 def main():
