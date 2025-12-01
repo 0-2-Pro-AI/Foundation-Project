@@ -14,6 +14,7 @@ def MENU():
     print("1. Making your new order ")
     print("2. Checking your listing")
     print("3. Exit")
+    print("4. Delete order")
 
 def order():
     print("\n---MAKING YOUR NEW ORDER--- ")
@@ -54,11 +55,27 @@ def checking():
         total = sum(order["price"] for order in orders)
         print(f"TOTAL BILL: {total} euros")
 
+def delete():
+    print("\n ---CANCEL ORDERS---")
+    checking()
+    try:
+        index = int(input("Enter the ID you want to cancel: "))
+        index = index - 1
+        if 0 <= index < len(orders):
+            item = orders.pop(index)
+            print(f"Your {item['food']} have been cancelled.")
+        else:
+            print("Your ID doesn't exit.")
+
+    except ValueError:
+        print("Error! Please enter a number!")
+         
+
 def main():
     processing = True
     while processing:
         MENU()
-        choice = input("Choose (1/2/3): ")
+        choice = input("Choose (1/2/3/4): ")
         if choice == "1":
             order()
         elif choice == "2":
@@ -66,6 +83,8 @@ def main():
         elif choice == "3":
             print("Good bye!")
             break
+        elif choice == "4":
+            delete()
 
         else:
             print("Your choice is invalid!")
