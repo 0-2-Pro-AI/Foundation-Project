@@ -32,6 +32,11 @@ if you arrange the switch lying to each other, the number of conditions (numbers
 
 2^0 = 1 conditions (2 modes, 1 bit), max=0
 2^1 = 2 conditions (2 modes, 2 bit), max=1
-2^2 = 4 conditions (2 modes, 3 bit), max=2
-2^3 = 8 conditions (2 modes, 4 bit), max=3
+2^2 = 4 conditions (2 modes, 3 bit), max=3
+2^3 = 8 conditions (2 modes, 4 bit), max=7
 --> Computer universe, everything start with 0
+
+max is the most value number that the box can contain
+
+formula is max = number of conditions - 1
+(because the first bit in the place 0 )
