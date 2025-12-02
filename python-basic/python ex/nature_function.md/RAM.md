@@ -22,7 +22,7 @@ RAM is clearly defined the area of hardware
 
 1 Byte contains 8 bits(switch on/off )
 
-1 bit has 2 conditions (on/off) Binary System
+1 bit has 2 modes (on/off) Binary System
 
 computer use electric to count
 
@@ -30,8 +30,8 @@ it is exponential
 
 if you arrange the switch lying to each other, the number of conditions (numbers) will increase with every bit that added
 
-2^0 = 1 (2 conditions, 1 bit)
-2^1 = 2 (2 conditions, 2 bit)
-2^2 = 4 (2 conditions, 3 bit)
-2^3 = 8 (2 conditions, 4 bit)
+2^0 = 1 conditions (2 modes, 1 bit)
+2^1 = 2 conditions (2 modes, 2 bit)
+2^2 = 4 conditions (2 modes, 3 bit)
+2^3 = 8 conditions (2 modes, 4 bit)
 --> Computer universe, everything start with 0
