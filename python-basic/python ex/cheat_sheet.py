@@ -63,7 +63,7 @@ except ValueError:
 # and it will automatic stop when end of the list
 # Ex: Run through the pixel in an image or the data folder
 
-# "while" use to run the main permanent, just stop when satisfy a condition (while.condition) or break,
+# "while" use to run the main permanent, just stop when satisfy a condition or break,
 # it´s dangerous cause make the program is permanently suspended when make the wrong condition or forget the break,
 # and we use it when don´t know exactly amount of elements
 # Ex: Train AI continuosly until their error is low enough
@@ -131,5 +131,18 @@ def delete():
 #   --> orders[0], menu['food']
 
 # TIPS PRO: 
-# [LIST], use for same nature data
+# [LIST], use for same types of data
 # (TUPLE), use for different types of data
+
+
+# 10. When want to compare some info( words) from the user with the global variables,
+# have to use function .strip().lower(), cause it will delete the space "" and small all
+# the letter to easily compare with the global variables (avoid the crash just 
+# because the differenc of small and big letters)
+
+# But even for the info of numbers, .strip() is still vital, cause it prevent the "ghost space",
+# EX: if the user enter the space " " in def update(), the memory will save it and it will 
+#     replace the old info although the customer just want to pass this item. Then evidently, 
+#     the shipper have no clue where to deliver the order in case of Uber
+
+

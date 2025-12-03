@@ -40,3 +40,16 @@ max is the most value number that the box can contain
 
 formula is max = number of conditions - 1
 (because the first value is always 0 )
+
+
+BUT there is a way to hack RAM that you think it is infinite
+
+Like Facebook or Youtube, why RAM on devices is limit but they can show like infinite contents for your to scrool and get addicted
+
+the truth is it not infinite, every time they just summon around 20 videos in front of your face 
+
+and as soon as you scroll, RAM delete it and summon another 20 videos to show for you
+
+so you feel like it is infinite but it's not
+
+and the reason why just the big tech do this cause it's require the good programmar to code the complex algothism for that function
