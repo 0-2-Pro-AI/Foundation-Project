@@ -15,6 +15,7 @@ def MENU():
     print("2. Checking your listing")
     print("3. Exit")
     print("4. Delete order")
+    print("5. Update order")
 
 def order():
     print("\n---MAKING YOUR NEW ORDER--- ")
@@ -93,88 +94,64 @@ def delete():
 def update():
     print("\n ---UPDATE ORDER---")
     checking()
+
     while True:
         try:
             user_id = input("Enter the ID to update (or '0' to back): ").strip()
+
             if user_id == "0":
                 print("--> Back to the menu.")
                 break
             
-            valid_id =[]
-            real_id = user_id - 1
-            if 0 <= real_id < len(orders):
-                valid_id.append(real_id)
-            
-            if not valid_id:
+            real_id = int(user_id) - 1
+
+            if not (0 <= real_id < len(orders)):
                 print("Error! Please enter a valid ID.")
                 continue
 
-            current_order = orders[valid_id]
+            current_order = orders[real_id]
             
             while True:
-                print(f"\n ---Editing order ID {[user_id]}---")
-                print(f"1. Food: {[current_order("food")]} : {[current_order("price")]} euros ")
-                print(f"2. Address: {[current_order("address")]}")
-                print(f"3. Duration: {[current_order("duration")]}")
-                print("0. Exit")
+                print(f"\n ---Editing order ID {user_id}---")
+                print(f"1. Food: {current_order['food']} : {current_order['price']} euros ")
+                print(f"2. Address: {current_order['address']}")
+                print(f"3. Duration: {current_order['duration']}")
+                print("0. Save & Exit")
 
                 choice = input("You want to change (1/2/3/4): ").strip()
                 if choice == "1":
-                    MENU_items()
+                    print("Menu:", list(MENU_items.keys()))
                     new_order = input("Your new food: ").strip().lower()
                     if new_order in MENU_items:
                         current_order["food"] = new_order
                         current_order["price"] = MENU_items[new_order]
-                        print(f"Success! Your change {[new_order]} is {[current_order["price"]]} euros)")
+                        print(f"Success! Your change {new_order} is {current_order['price']} euros)")
                     else:
                         print("Your food in not in the menu. Please choose again.")
                         
                 elif choice == "2":
-                    new_address = input("Your new address: ")
+                    new_address = input("Your new address: ").strip()
                     if new_address:
-                        current_order("address") = new_address
+                        current_order["address"] = new_address
                         print("--> Address updated.")
 
                 elif choice == "3":
-                    new_duration = input("Your new duration:")
+                    new_duration = input("Your new duration:").strip()
                     if new_duration:
-                        current_order("duration") = new_duration
+                        current_order["duration"] = new_duration
                         print("--> Duration updated.")
 
                 elif choice == "0": 
                     print("--> Changed saved.")
                     break
 
+                else:
+                    print("Invalid option!")
+
         except ValueError:
             print("Please enter a number!")
 
-                
-
-                    
-
-                
-                            
-                    
-            
-
-
-            
-
-
-
-            
-
-
-
-
-
-
-
-            
-
     
-         
-
 def main():
     processing = True
     while processing:
@@ -189,6 +166,8 @@ def main():
             break
         elif choice == "4":
             delete()
+        elif choice == "5":
+            update()
 
         else:
             print("Your choice is invalid!")
