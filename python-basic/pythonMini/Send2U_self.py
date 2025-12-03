@@ -27,7 +27,7 @@ def order():
             print(f"Success! Your {food_name} is {price} euros")
             break
         else:
-            print("We don`t have this option! Please try: ", list(MENU_items.keys()))
+            print("We don't have this option! Please try: ", list(MENU_items.keys()))
 
     address = input("Delivery address: ")
     duration = input("Delivery time: ")
@@ -89,6 +89,89 @@ def delete():
 
         except ValueError:
             print("Error! Please enter numbers separated by comma (1,2).")
+
+def update():
+    print("\n ---UPDATE ORDER---")
+    checking()
+    while True:
+        try:
+            user_id = input("Enter the ID to update (or '0' to back): ").strip()
+            if user_id == "0":
+                print("--> Back to the menu.")
+                break
+            
+            valid_id =[]
+            real_id = user_id - 1
+            if 0 <= real_id < len(orders):
+                valid_id.append(real_id)
+            
+            if not valid_id:
+                print("Error! Please enter a valid ID.")
+                continue
+
+            current_order = orders[valid_id]
+            
+            while True:
+                print(f"\n ---Editing order ID {[user_id]}---")
+                print(f"1. Food: {[current_order("food")]} : {[current_order("price")]} euros ")
+                print(f"2. Address: {[current_order("address")]}")
+                print(f"3. Duration: {[current_order("duration")]}")
+                print("0. Exit")
+
+                choice = input("You want to change (1/2/3/4): ").strip()
+                if choice == "1":
+                    MENU_items()
+                    new_order = input("Your new food: ").strip().lower()
+                    if new_order in MENU_items:
+                        current_order["food"] = new_order
+                        current_order["price"] = MENU_items[new_order]
+                        print(f"Success! Your change {[new_order]} is {[current_order["price"]]} euros)")
+                    else:
+                        print("Your food in not in the menu. Please choose again.")
+                        
+                elif choice == "2":
+                    new_address = input("Your new address: ")
+                    if new_address:
+                        current_order("address") = new_address
+                        print("--> Address updated.")
+
+                elif choice == "3":
+                    new_duration = input("Your new duration:")
+                    if new_duration:
+                        current_order("duration") = new_duration
+                        print("--> Duration updated.")
+
+                elif choice == "0": 
+                    print("--> Changed saved.")
+                    break
+
+        except ValueError:
+            print("Please enter a number!")
+
+                
+
+                    
+
+                
+                            
+                    
+            
+
+
+            
+
+
+
+            
+
+
+
+
+
+
+
+            
+
     
          
 
