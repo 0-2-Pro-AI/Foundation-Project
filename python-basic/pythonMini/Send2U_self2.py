@@ -39,23 +39,33 @@ def order_food():
             print("Your delivery time is added.")
             break
 
-    status = "Pendent"
-    print("Status of your order is 'Pendent'!")
-
     single_order ={
         "food": food,
         "price": price,
         "address": address,
         "duration": duration,
-        "status": status
+        "status": "Pendent"
     }
 
     orders.append(single_order)
+    print("Your orders saved successfully.")
 
 
 def checking():
     print("\n ---Your listing---")
-    for i in orders()
+
+    if not orders:
+        print("No orders found!")
+    else:
+        for i, order in enumerate(orders,1):
+            print(f"Your ID: {i} | Food: {order['food']} | Price: {order['price']} | Status: {order['status']} ")
+
+        print("-"*30)
+        total = sum(order["price"] for order in orders )
+        print(f"TOTAL BILL: {total} euros. ")
+
+
+
 
 
 
