@@ -65,6 +65,35 @@ def checking():
         print(f"TOTAL BILL: {total} euros. ")
 
 
+ def update():
+    print("\n ---UPDATE YOUR ORDER---")
+    checking()
+    
+    while True:
+        try:
+            user_id = input("Please enter your ID (or '0' to come back): ").strip()
+            
+            if user_id == "0":
+                print("--> Back to the menu.")
+                break
+            
+            real_id = int(user_id - 1)
+            if not 0 <= real_id < len(orders):
+                print("Error! Please enter a valid ID.")
+                continue
+
+            current_order = orders[real_id]
+
+            while True:
+                print("\n ---UPDATE YOUR ORDERS---")
+                print(f"Food: ")
+
+            
+
+
+
+                
+
 
 
 
