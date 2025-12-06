@@ -177,4 +177,22 @@ def MENU():
     print("5. Exit")
 
 
-        
+def main():
+    while True:
+        MENU()
+        choice = input ("Choose 1/2/3/4/5: ")
+        if choice == "5":
+            print("Good bye.")
+            break
+        elif choice == "1":
+            order_food()
+        elif choice == "2":
+            checking()
+        elif choice == "3":
+            update()
+        elif choice == "4":
+            delete()
+
+        else: 
+            print("Your choice is invalid!")
+main()    
