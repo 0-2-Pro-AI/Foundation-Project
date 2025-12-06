@@ -65,7 +65,7 @@ def checking():
         print(f"TOTAL BILL: {total} euros. ")
 
 
- def update():
+def update():
     print("\n ---UPDATE YOUR ORDER---")
     checking()
     
@@ -77,7 +77,7 @@ def checking():
                 print("--> Back to the menu.")
                 break
             
-            real_id = int(user_id - 1)
+            real_id = int(user_id) - 1
             if not 0 <= real_id < len(orders):
                 print("Error! Please enter a valid ID.")
                 continue
@@ -86,7 +86,52 @@ def checking():
 
             while True:
                 print("\n ---UPDATE YOUR ORDERS---")
-                print(f"Food: ")
+                print(f"1. Food: {current_order['food']} | Price: {current_order['price']} euros.")
+                print(F"2. Delivery order: {current_order['address']}")
+                print(f"3. Delivery time: {current_order['duration']}")
+                print(f"0. Save and exit")
+
+                choice = input("Please enter 1/2/3/0: ").strip()
+                if choice == "0":
+                    print("Your updated have successfully done!")
+                    break
+                
+                elif choice == "1":
+                    print("Menu:", list(menu_items.keys()))
+                    new_order = input("Your new order:").strip().lower()
+                    if new_order in menu_items:
+                        current_order['food'] = new_order
+                        current_order['price'] = menu_items[new_order]
+                        print(f"Your new order {new_order} is {current_order['price']} euros")
+                    else:
+                        print("Your foood is not in the menu!")
+                        continue
+
+                elif choice == "2":
+                    new_address = input("Delivery address:").strip()
+                    if new_address:
+                        current_order["address"] = new_address
+                        print("Your address has successfully updated!")
+                    else:
+                        print("Don't leave blank.")
+
+                elif choice == "3":
+                    new_duration = input("Delivery time(ex: 17-19h): ").strip()
+                    if new_duration:
+                        current_order["duration"] = new_duration
+                    else: 
+                        print("Don't leave blank.")
+
+                else:
+                    print("Please enter 1/2/3/0: ")
+
+        except ValueError:
+            print("Please enter a number!")
+            continue
+
+
+
+                
 
             
 
