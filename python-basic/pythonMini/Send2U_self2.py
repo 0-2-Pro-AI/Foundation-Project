@@ -129,43 +129,52 @@ def update():
             print("Please enter a number!")
             continue
 
+def delete():
+    print("\n ---Cancel Orders---")
+    checking()
+    while True:
+        try:
+            user_id = input("Enter the ID (ex:1,3 or '0' to come back): ")
+            if user_id == "0":
+                print("--> Back to the menu")
+                break
 
+            id_list = user_id.split(",")
+            valid_id = []
 
-                
+            for s in id_list:
+                if s.strip():
+                    idx = int(s.strip()) - 1
+                    if 0 <= idx < len(orders):
+                        valid_id.append(idx)
+
+            if not valid_id:
+                print("No valid ID.")
+                continue
+
+            valid_id.sort(reverse=True)
+            print(f"--> Deleting {len(valid_id)} items...")
+            
+            for idx in valid_id:
+                removed = orders.pop(idx)
+                print(f"Deleted: {removed['food']}")
+                print("--> Done")
+
+        except ValueError:
+            print("Error!")
+                    
 
             
 
-
-
-                
-
-
-
-
-
-
-
-
-
-
+def MENU():
     
+    print("\n ---Welcome to Send2You Shop---")
+    print("="*30)
+    print("1. Make you new order")
+    print("2. Checking your listing")
+    print("3. Update your order")
+    print("4. Delete your orders")
+    print("5. Exit")
 
-
-
-
-
-
-
-
-
-
-def main():
-    while True:
-        print("\n ---Welcome to Send2You Shop---")
-        print("1. Make you new order")
-        print("2. Checking your listing")
-        print("3. Update your order")
-        print("4. Delete your orders")
-        print("5. Exit")
 
         
