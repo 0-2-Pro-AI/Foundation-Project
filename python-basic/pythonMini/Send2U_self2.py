@@ -87,7 +87,7 @@ def update():
             while True:
                 print("\n ---UPDATE YOUR ORDERS---")
                 print(f"1. Food: {current_order['food']} | Price: {current_order['price']} euros.")
-                print(F"2. Delivery order: {current_order['address']}")
+                print(F"2. Delivery address: {current_order['address']}")
                 print(f"3. Delivery time: {current_order['duration']}")
                 print(f"0. Save and exit")
 
@@ -119,6 +119,7 @@ def update():
                     new_duration = input("Delivery time(ex: 17-19h): ").strip()
                     if new_duration:
                         current_order["duration"] = new_duration
+                        print("--> Time updated.")
                     else: 
                         print("Don't leave blank.")
 
@@ -160,6 +161,8 @@ def delete():
                 print(f"Deleted: {removed['food']}")
                 print("--> Done")
 
+            checking()
+            
         except ValueError:
             print("Error!")
                     
