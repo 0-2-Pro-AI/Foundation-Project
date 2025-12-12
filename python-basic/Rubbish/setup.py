@@ -73,4 +73,4 @@ def create_data_final():
     print("🎉 KIỂM TRA HOÀN TẤT.")
 
 if __name__ == "__main__":
-    create_data_final()
+    create_data_final() 
