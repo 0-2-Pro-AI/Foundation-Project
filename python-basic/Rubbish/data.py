@@ -64,7 +64,7 @@ def save_products(df):
 # --- HÀM 3: ĐƠN HÀNG ---
 def load_orders():
     if os.path.exists(FILE_ORDERS):
-        return pd.read_csv(FILE_ORDERS, sep=';')
+        return pd.read_csv(FILE_ORDERS, sep=';', dtype=str)
     return pd.DataFrame(columns=["order_id", "client_id", "product_id", "status", "shipper_id"])
 
 def save_orders(df):
@@ -73,7 +73,7 @@ def save_orders(df):
 # --- HÀM 4: KHIẾU NẠI ---
 def load_complaints():
     if os.path.exists(FILE_COMPLAINTS):
-        return pd.read_csv(FILE_COMPLAINTS, sep=';')
+        return pd.read_csv(FILE_COMPLAINTS, sep=';', dtype=str)
     return pd.DataFrame(columns=["order_id", "noidung"])
 
 def save_complaints(df):
